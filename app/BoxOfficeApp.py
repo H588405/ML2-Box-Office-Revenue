@@ -5,10 +5,10 @@ from forms import DataForm
 from predict import get_form_data, predict
 import pickle
 
+# app.run(host='0.0.0.0', port=5000, debug=True) 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-# app.run(host='0.0.0.0', port=5000, debug=True) 
 
 app.config['SECRET_KEY'] = 'DAT158'
 
@@ -22,10 +22,9 @@ def index():
     if form.validate_on_submit():
         for fieldname, value in form.data.items():
             session[fieldname] = value
-
-        data = get_form_data(session)
- 
-        pred = predict(data)
+        
+        pred = predict(session)
+        session['pred'] = pred
         return redirect(url_for('index'))
     return render_template('index.html', form=form)
 

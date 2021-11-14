@@ -28,8 +28,8 @@ def predict(data, debug=False):
     if debug:
         print(f'Feature values: {values}\n')
 
-    columns_order = ['number_of_genres', 'runtime', 'cast_count', 'crew_count', 
-    'has_collection', 'speaks_english', 'budget', 'popularity']       
+    columns_order = ['budget', 'popularity', 'runtime', 'has_collection', 
+    'number_of_genres', 'speaks_english', 'cast_count', 'crew_count']       
 
     values = np.array([values[feature] for feature in columns_order], dtype=object)
 

@@ -9,9 +9,8 @@ class DataForm(FlaskForm):
     runtime = IntegerField('How long is the movie in minutes', validators=[DataRequired()])
     cast_count = IntegerField('How many cast members are there in the movie', validators=[DataRequired()])
     crew_count = IntegerField('How many crew members are there in the movie', validators=[DataRequired()])
-
-    has_collection = SelectField('movie has a collection or not', choices=[(1, 'yes'), (0, 'no')])
-    speaks_english = SelectField('Main language in the movie is english', choices=[(1, 'yes'), (0, 'no')])
+    has_collection = IntegerField('movie has a collection or not', validators=[NumberRange(min=0, max=1)])
+    speaks_english = IntegerField('Main language in the movie is english', validators=[NumberRange(min=0, max=1)])
 
 
     budget = FloatField('What is the budget for the movie', validators=[DataRequired()])

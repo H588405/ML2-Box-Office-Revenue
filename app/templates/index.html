@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMDB</title>
+  </head>
+<body>
 {% extends "bootstrap/base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
@@ -38,12 +47,11 @@
 
 <div class='container'>
 
-    <h3>{% if session.get('pred') %} The predicted box office revenue of the movie is {{session.get('pred')['pred']}} dollars.</h3>
-
-    <h4>Probabilities: {{session.get('pred')['uncertainty']}}
-         {% else %} {% endif %}</h4>
-    <br>
+    <h3>{% if session.get('pred') %} The predicted box office revenue of the movie is {{session.get('pred')}} dollars.</h3>
+         {% else %} {% endif %}
 
 </div>
 
 {% endblock %}
+</body>
+</html>
